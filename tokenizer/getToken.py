@@ -23,7 +23,9 @@ def tokenize_ans():
 
 def tokenize(sentence):
     symbol = [",", ".", "!", ":", "?", "...",
-              "-", "(", ")", ";", "[", "]", "`"]
+              "-", "(", ")", ";", "[", "]","{","}","`","'","/","|","<",">","%",'"',"@","#","$","^","&","*"]
+
+    sentence = sentence.strip()
 
     for x in symbol:
         sentence = sentence.replace(x, "")
