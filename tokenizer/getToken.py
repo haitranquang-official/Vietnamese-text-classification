@@ -16,9 +16,8 @@ tokenizer = word_tokenize
 @app.route('/tokenize', methods=['POST'])
 def tokenize_ans():
     data = request.json
-    print(data['content'])
     sentence = data['content']
-    return tokenize(sentence)
+    return tokenize(sentence.encode("utf-8").decode())
 
 
 def tokenize(sentence):
@@ -33,17 +32,13 @@ def tokenize(sentence):
     words = tokenizer(sentence)
     words2 = tokenizer(sentence)
     words3 = tokenizer(sentence)
-    print(words)
 
     for i in range(len(words)-1):
         words2[i] = words2[i] + " " + words2[i+1]
 
-    print(words2)
 
     for i in range(len(words)-2):
         words3[i] = words3[i] + " " + words3[i+1] + " " + words3[i+2]
-
-    print(words3)
 
     ans = {}
     ans["words1"] = words
