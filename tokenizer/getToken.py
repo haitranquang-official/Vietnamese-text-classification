@@ -44,6 +44,7 @@ def tokenize(sentence):
     ans["words1"] = words
     ans["words2"] = words2
     ans["words3"] = words3
+    ans = words + words2 + words3
     return ans
 
 
